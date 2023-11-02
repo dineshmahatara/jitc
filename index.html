@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Jhimruk Innovative Technology Center
-        </title>
-    </head>
-    <body>
-        <h1> Please wait Page is redirecting to Main Page</h1>
-    </body>
+<head>
+    <title>Jhimruk Innovative Technology Center</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .countdown-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            background-color: #3498db;
+            border-radius: 50%;
+        }
+
+        .countdown {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 40px;
+        }
+    </style>
+    <script>
+        function countdownRedirect() {
+            var countdown = 5; // Countdown duration in seconds
+            var redirectUrl = "https://sites.google.com/view/jhimrukitc";
+
+            var countdownElement = document.getElementById("countdown");
+            countdownElement.innerHTML = countdown; // Initial countdown display
+
+            var countdownInterval = setInterval(function() {
+                countdown--;
+                countdownElement.innerHTML = countdown; // Update countdown display
+
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval); // Stop the countdown
+                    window.location.href = redirectUrl; // Redirect to the specified URL
+                }
+            }, 1000); // Update countdown every 1 second (1000 milliseconds)
+        }
+        window.onload = countdownRedirect; // Start the countdown when the page loads
+    </script>
+</head>
+<body>
+  
+    <div class="countdown-container">
+        
+        <h1 class="countdown" id="countdown"> 5</h1>
+    </div>
+</body>
 </html>
